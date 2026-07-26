@@ -586,10 +586,20 @@
             title="Introduction video" allowfullscreen></iframe>
 
         ================================================= -->
-      <div class="ph">
-        <span class="play-badge"></span>
-        Video slot — see the comment in the code<br>for the two ways to add yours
-      </div>
+      <!-- Now wired for YOUR file: upload your video to the repo as
+           videos/intro.mp4  (folder named "videos", file named "intro.mp4",
+           keep it under ~50 MB — GitHub rejects files over 100 MB).
+
+           SWITCHING TO YOUTUBE INSTEAD? Delete the <video> element below
+           and use this, with your real video ID after /embed/ :
+
+           <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+             title="Introduction video" allowfullscreen></iframe>
+      -->
+      <video controls preload="metadata">
+        <source src="videos/intro.mp4" type="video/mp4">
+        Your browser doesn't support embedded videos.
+      </video>
     </div>
 
     <!-- EDIT: caption for your video -->
