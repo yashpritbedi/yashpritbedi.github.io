@@ -119,7 +119,7 @@
   .panel:nth-child(4){margin-top:46px}
   .hero-tail{height:70px}
 
-   /* mood tile — hero panel 3 */
+  /* mood tile — hero panel 3 */
   .panel.mood{
     display:flex;flex-direction:column;justify-content:center;
     align-items:center;text-align:center;gap:14px;padding:26px;
@@ -176,6 +176,57 @@
   .pv1{background:linear-gradient(140deg,var(--blush),#F2BFCE)}
   .pv2{background:linear-gradient(140deg,var(--mint),#BFE3CC)}
   .pv3{background:linear-gradient(140deg,var(--sky),#C9DDF2)}
+
+  /* ---------------- scrapbook collage (passion-2) ---------------- */
+  .collage{
+    position:relative;overflow:hidden;aspect-ratio:1/1.05;
+    background:
+      radial-gradient(120% 90% at 20% 15%,rgba(255,255,255,.9),transparent 55%),
+      radial-gradient(100% 80% at 85% 80%,rgba(228,222,208,.8),transparent 60%),
+      #F1EDE2;                                  /* crumpled-paper feel */
+  }
+  .c-photo{
+    position:absolute;overflow:hidden;background:#D9D4C8;
+    border:5px solid #fff;box-shadow:0 12px 26px -10px rgba(30,25,35,.5);
+  }
+  .c-photo img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    filter:grayscale(1) contrast(1.18);         /* B&W editorial treatment */
+    transition:filter .35s;
+  }
+  .c-photo:hover img{filter:grayscale(0) contrast(1)}   /* colour reveals on hover */
+  .c-photo.tint::after{                          /* rose colour-pop */
+    content:"";position:absolute;inset:0;
+    background:var(--rose);mix-blend-mode:screen;opacity:.75;pointer-events:none;
+  }
+  .c-photo.tint-blue::after{                     /* klein-blue colour-pop */
+    content:"";position:absolute;inset:0;
+    background:#2743C7;mix-blend-mode:screen;opacity:.7;pointer-events:none;
+  }
+  /* congested placement — frames bleed off the edges and overlap */
+  .cp1{width:42%;height:54%;left:-4%;top:-5%;transform:rotate(-4deg);z-index:1}
+  .cp2{width:48%;height:36%;right:-4%;top:-4%;transform:rotate(3deg);z-index:1}
+  .cp3{width:36%;height:48%;left:30%;top:10%;transform:rotate(2deg);z-index:2}
+  .cp4{width:40%;height:44%;left:-3%;bottom:-5%;transform:rotate(3deg);z-index:1}
+  .cp5{width:36%;height:46%;left:32%;bottom:-7%;transform:rotate(-3deg);z-index:2}
+  .cp6{width:38%;height:52%;right:-5%;bottom:-4%;transform:rotate(5deg);z-index:1}
+  /* torn paper caption strips */
+  .c-strip{
+    position:absolute;z-index:5;background:#FDFCF8;padding:8px 16px;
+    box-shadow:0 8px 18px -6px rgba(30,25,35,.45);
+    font-size:.6rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ink);white-space:nowrap;
+    clip-path:polygon(0% 14%,2% 2%,12% 6%,30% 0%,55% 5%,78% 1%,96% 6%,100% 20%,
+                      99% 55%,100% 84%,95% 98%,70% 94%,45% 100%,20% 95%,3% 99%,1% 80%);
+  }
+  .c-strip em{font-family:"Fraunces",serif;font-style:italic;font-weight:600;
+    text-transform:none;letter-spacing:0;font-size:1.25em;color:#2743C7}
+  .c-strip b{color:var(--rose)}
+  .cs1{left:4%;top:36%;transform:rotate(-3deg)}
+  .cs2{left:16%;top:52%;transform:rotate(1.5deg)}
+  .cs3{right:3%;bottom:30%;transform:rotate(2deg)}
+  .cs4{left:22%;bottom:8%;transform:rotate(-2deg);z-index:6}
+
   .passion .body{padding:26px}
   .passion h3{font-size:1.25rem;margin-bottom:10px}
   .passion p{color:#54465E;font-size:.95rem}
@@ -368,8 +419,7 @@
         <p>I'm an MBA student at BITSoM, but the more honest introduction is this:
         I'm someone who collects small observations about people — what they choose,
         why they choose it, and how the right words or the right shade of colour can
-        change how they feel about themselves. That fascination is what pulled me
-        toward marketing, and toward beauty in particular.</p>
+        change how they feel about themselves.</p>
         <p>I bring energy into rooms, ask one question more than necessary, and
         genuinely enjoy turning messy ideas into things people can see and feel.</p>
         <!-- EDIT: five quick facts about you -->
@@ -397,17 +447,31 @@
       <div class="passion reveal">
         <div class="visual pv1"><div class="ph">images/passion-1.jpg</div></div>
         <div class="body">
-          <h3>Creating & content</h3>
-          <p>I love making things — mood boards, reels, posters for college fests.
-          Give me a blank canvas and a deadline and I'm the happiest person in the room.</p>
+          <h3>Painting & Creativity</h3>
+          <p>I love painting and creating art. Give me a blank canvas, some colours,
+          and a little time, and I can happily lose track of the world around me.</p>
         </div>
       </div>
       <div class="passion reveal">
-        <div class="visual pv2"><div class="ph">images/passion-2.jpg</div></div>
+        <div class="visual pv2 collage">
+          <!-- your photos — swap any slot by changing the filename -->
+          <div class="c-photo cp1"><img src="images/collage-1.jpg" alt="Metro platform"></div>
+          <div class="c-photo cp2 tint-blue"><img src="images/collage-2.jpg" alt=""></div>
+          <div class="c-photo cp3 tint"><img src="images/collage-3.jpg" alt=""></div>
+          <div class="c-photo cp4"><img src="images/collage-4.jpg" alt=""></div>
+          <div class="c-photo cp5"><img src="images/collage-5.jpg" alt=""></div>
+          <div class="c-photo cp6"><img src="images/collage-6.jpg" alt=""></div>
+          <!-- torn caption strips — <em> = blue italic, <b> = rose -->
+          <span class="c-strip cs1">Power <em>girls,</em> everywhere</span>
+          <span class="c-strip cs2"><em>makeup</em> counters &amp; <b>metro</b> rides</span>
+          <span class="c-strip cs3">salon <em>chairs,</em> real <b>stories</b></span>
+          <span class="c-strip cs4">the art of <em>looking closer</em></span>
+        </div>
         <div class="body">
           <h3>People-watching (the kind marketers do)</h3>
-          <p>Markets, metro rides, makeup counters — I'm endlessly curious about why
-          people buy what they buy, and I read consumer culture the way others read novels.</p>
+          <p>Metro rides, makeup counters, salon chairs — I collect scenes of women
+          getting on with life. Shot on my phone, wherever the story is. It's where
+          my consumer instincts come from.</p>
         </div>
       </div>
       <div class="passion reveal">
